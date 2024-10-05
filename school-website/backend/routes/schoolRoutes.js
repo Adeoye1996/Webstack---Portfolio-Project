@@ -1,17 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const { getAllCourses, createCourse } = require('../controllers/courseController');
+const { getAllAdmissions, createAdmission } = require('../controllers/admissionController');
 
-// Example routes for the school website
-router.get('/about', (req, res) => {
-  res.json({ message: 'This is the about page information' });
-});
+// Courses routes
+router.get('/courses', getAllCourses);
+router.post('/courses', createCourse);
 
-router.get('/admissions', (req, res) => {
-  res.json({ message: 'This is the admissions information' });
-});
-
-router.get('/courses', (req, res) => {
-  res.json({ message: 'List of courses and programs' });
-});
+// Admissions routes
+router.get('/admissions', getAllAdmissions);
+router.post('/admissions', createAdmission);
 
 module.exports = router;
