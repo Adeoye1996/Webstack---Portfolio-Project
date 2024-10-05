@@ -1,18 +1,28 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import { Container } from '@mui/material';
+import About from './pages/About';
+import Academics from './pages/Academics';
+import Admissions from './pages/Admissions';
+import StudentLife from './pages/StudentLife';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar />
-      <Container>
-        <Home />
-      </Container>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/academics" element={<Academics />} />
+        <Route path="/admissions" element={<Admissions />} />
+        <Route path="/student-life" element={<StudentLife />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
       <Footer />
-    </>
+    </Router>
   );
 }
 
