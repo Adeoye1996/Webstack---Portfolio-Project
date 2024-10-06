@@ -1,33 +1,24 @@
 import React from 'react';
-import { Typography, Box } from '@mui/material';
+import { Container, Typography, Button } from '@mui/material';
 
-const Admissions = () => {
+function Admissions() {
   return (
-    <Box>
-      <Typography variant="h2">Admissions</Typography>
-
-      <Box mt={3}>
-        <Typography variant="h4">Application Process</Typography>
-        <Typography variant="body1">
-          Our application process is simple...
-        </Typography>
-      </Box>
-
-      <Box mt={3}>
-        <Typography variant="h4">Tuition and Fees</Typography>
-        <Typography variant="body1">
-          We offer competitive tuition rates...
-        </Typography>
-      </Box>
-
-      <Box mt={3}>
-        <Typography variant="h4">Scholarships</Typography>
-        <Typography variant="body1">
-          We provide scholarship opportunities...
-        </Typography>
-      </Box>
-    </Box>
+    // Container to wrap the Admissions page content
+    <Container>
+      {/* Page heading */}
+      <Typography variant="h3" component="h1" gutterBottom>
+        Admissions
+      </Typography>
+      {/* Information about the application process */}
+      <Typography variant="body1" paragraph>
+        Find out how to apply to our school. We offer several scholarships and financial aid options.
+      </Typography>
+      {/* Call-to-action button for application */}
+      <Button variant="contained" color="primary">
+        Start Your Application
+      </Button>
+    </Container>
   );
-};
+}
 
 export default Admissions;

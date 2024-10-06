@@ -1,40 +1,24 @@
 import React from 'react';
-import { Typography, Box } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 
-const About = () => {
+function About() {
   return (
-    <Box>
-      <Typography variant="h2">About Our School</Typography>
-
-      <Box mt={3}>
-        <Typography variant="h4">Mission and Vision</Typography>
-        <Typography variant="body1">
-          Our mission is to educate future leaders...
-        </Typography>
-      </Box>
-
-      <Box mt={3}>
-        <Typography variant="h4">History</Typography>
-        <Typography variant="body1">
-          Our school was established in...
-        </Typography>
-      </Box>
-
-      <Box mt={3}>
-        <Typography variant="h4">Leadership</Typography>
-        <Typography variant="body1">
-          Meet our leadership team...
-        </Typography>
-      </Box>
-
-      <Box mt={3}>
-        <Typography variant="h4">Faculty and Staff</Typography>
-        <Typography variant="body1">
-          Our dedicated staff...
-        </Typography>
-      </Box>
-    </Box>
+    // Main container for the About page content
+    <Container>
+      {/* Heading for the About page */}
+      <Typography variant="h3" component="h1" gutterBottom>
+        About Our School
+      </Typography>
+      {/* Mission and vision section */}
+      <Typography variant="body1" paragraph>
+        Learn more about our mission, vision, and history.
+      </Typography>
+      {/* Additional information section (can be extended later) */}
+      <Typography variant="body2">
+        We strive to provide the best education for our students...
+      </Typography>
+    </Container>
   );
-};
+}
 
 export default About;

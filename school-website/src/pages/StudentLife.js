@@ -1,33 +1,29 @@
 import React from 'react';
-import { Typography, Box } from '@mui/material';
+import { Container, Typography, List, ListItem, ListItemText } from '@mui/material';
 
-const StudentLife = () => {
+function StudentLife() {
+  const activities = ['Football Club', 'Drama Society', 'Coding Club', 'Science Fair'];
+
   return (
-    <Box>
-      <Typography variant="h2">Student Life</Typography>
-
-      <Box mt={3}>
-        <Typography variant="h4">Extracurricular Activities</Typography>
-        <Typography variant="body1">
-          We offer various activities...
-        </Typography>
-      </Box>
-
-      <Box mt={3}>
-        <Typography variant="h4">Clubs and Organizations</Typography>
-        <Typography variant="body1">
-          Join a club or organization...
-        </Typography>
-      </Box>
-
-      <Box mt={3}>
-        <Typography variant="h4">Student Council</Typography>
-        <Typography variant="body1">
-          Our student council empowers students...
-        </Typography>
-      </Box>
-    </Box>
+    <Container>
+      <Typography variant="h3" gutterBottom>
+        Student Life
+      </Typography>
+      <Typography variant="body1" paragraph>
+        Our school offers a vibrant student life with a wide range of extracurricular activities and clubs.
+      </Typography>
+      <Typography variant="h5" gutterBottom>
+        Extracurricular Activities:
+      </Typography>
+      <List>
+        {activities.map((activity) => (
+          <ListItem key={activity}>
+            <ListItemText primary={activity} />
+          </ListItem>
+        ))}
+      </List>
+    </Container>
   );
-};
+}
 
 export default StudentLife;
