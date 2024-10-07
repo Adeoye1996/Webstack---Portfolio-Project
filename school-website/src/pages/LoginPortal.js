@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Box, Tab, Tabs, Alert } from '@mui/material';
-import axios from '../utils/axios';
+import axios from '../utils/axios'; // Updated to use your custom axios instance
 import { useNavigate } from 'react-router-dom';
 
 function LoginPortal() {
@@ -19,8 +19,11 @@ function LoginPortal() {
   const handleLogin = async () => {
     try {
       const role = tabIndex === 0 ? 'parent' : tabIndex === 1 ? 'staff' : 'admin';
-      const res = await axios.post('/auth/login', { email, password, role });
-      localStorage.setItem('token', res.data.token); // Store the token in localStorage
+      const res = await axios.post('/auth/login', { email, password });
+
+      // Store the token in localStorage
+      localStorage.setItem('token', res.data.token);
+
       setError(''); // Clear any previous errors
 
       // Redirect the user based on role
