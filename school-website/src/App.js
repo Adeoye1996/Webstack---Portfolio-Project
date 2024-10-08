@@ -10,8 +10,8 @@ import Academics from './pages/Academics';
 import Admissions from './pages/Admissions';
 import StudentLife from './pages/StudentLife';
 import Contact from './pages/Contact';
-import NewsEvents from './pages/NewsEvents'; // Added NewsEvents page
-import Resources from './pages/Resources';   // Added Resources page
+import NewsEvents from './pages/NewsEvents'; // Import NewsEvents page
+import Resources from './pages/Resources';   // Import Resources page
 import LoginPortal from './pages/LoginPortal'; // Assuming you are using this for the login page
 import ParentDashboard from './pages/ParentDashboard';
 import StaffDashboard from './pages/StaffDashboard';
@@ -33,7 +33,7 @@ function App() {
           <Route path="/admissions" element={<Admissions />} />
           <Route path="/student-life" element={<StudentLife />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/newsevents" element={<NewsEvents />} /> {/* Added NewsEvents route */}
+          <Route path="/news-events" element={<NewsEvents />} /> {/* Updated path for NewsEvents */}
           <Route path="/resources" element={<Resources />} />   {/* Added Resources route */}
           <Route path="/login" element={<LoginPortal />} />
 
