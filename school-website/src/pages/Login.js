@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { TextField, Button, Container, Typography, Box } from '@mui/material'; // Importing MUI components
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -27,31 +28,36 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
+    <Container maxWidth="xs"> {/* Centered and constrained width */}
+      <Box sx={{ mt: 8 }}> {/* Margin at the top */}
+        <Typography variant="h4" align="center">Login</Typography>
+        {error && <Typography color="error">{error}</Typography>} {/* Error message */}
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="Email"
+            variant="outlined"
+            fullWidth
+            margin="normal"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </div>
-        <div>
-          <label>Password</label>
-          <input
+          <TextField
+            label="Password"
+            variant="outlined"
             type="password"
+            fullWidth
+            margin="normal"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-    </div>
+          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
+            Login
+          </Button>
+        </form>
+      </Box>
+    </Container>
   );
 };
 

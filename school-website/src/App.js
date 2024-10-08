@@ -1,29 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material/styles'; // Assuming you are using Material UI's theme
-import theme from './theme'; // Import your theme if applicable
-import Navbar from './components/Navbar'; // Import Navbar
-import Footer from './components/Footer'; // Import Footer
-import Home from './pages/Home'; // Import Home component
-import About from './pages/About'; // Import About component
-import Academics from './pages/Academics'; // Import Academics component
-import Admissions from './pages/Admissions'; // Import Admissions component
-import StudentLife from './pages/StudentLife'; // Import Student Life component
-import Contact from './pages/Contact'; // Import Contact component
-import LoginPortal from './pages/LoginPortal'; // Import Login Portal
-import ParentDashboard from './pages/ParentDashboard'; // Import Parent Dashboard
-import StaffDashboard from './pages/StaffDashboard'; // Import Staff Dashboard
-import AdminDashboard from './pages/AdminDashboard'; // Import Admin Dashboard
-import PrivateRoute from './components/PrivateRoute'; // Import PrivateRoute for protected routes
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme'; // Import your custom Material UI theme
+import Navbar from './components/Navbar'; // Navbar for all pages
+import Footer from './components/Footer'; // Footer for all pages
+import Home from './pages/Home';
+import About from './pages/About';
+import Academics from './pages/Academics';
+import Admissions from './pages/Admissions';
+import StudentLife from './pages/StudentLife';
+import Contact from './pages/Contact';
+import LoginPortal from './pages/LoginPortal';
+import ParentDashboard from './pages/ParentDashboard';
+import StaffDashboard from './pages/StaffDashboard';
+import AdminDashboard from './pages/AdminDashboard';
+import PrivateRoute from './components/PrivateRoute'; // For protected routes like dashboards
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        {/* Navbar that will be displayed on all pages */}
+        {/* Navbar displayed globally */}
         <Navbar />
 
-        {/* Routes */}
+        {/* Main Content */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -33,7 +33,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<LoginPortal />} />
 
-          {/* Protected Routes (only accessible if authenticated) */}
+          {/* Protected Routes for dashboards */}
           <Route
             path="/parent-dashboard"
             element={
@@ -60,7 +60,7 @@ function App() {
           />
         </Routes>
 
-        {/* Footer that will be displayed on all pages */}
+        {/* Footer displayed globally */}
         <Footer />
       </Router>
     </ThemeProvider>
