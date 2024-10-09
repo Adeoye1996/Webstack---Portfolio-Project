@@ -1,63 +1,118 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { TextField, Button, Container, Typography, Box } from '@mui/material'; // Importing MUI components
+import { Container, TextField, Button, Typography, Box, Grid } from '@mui/material';
+import './Login.css'; // Assuming some CSS styling
 
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const Login = ({ userRole }) => {
+  const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
   const history = useHistory();
 
+  // Dummy credentials for testing login
+  const dummyCredentials = {
+    Parent: { username: 'parent123', password: 'password123' },
+    Staff: { username: 'staff123', password: 'password123' },
+    Admin: { username: 'admin123', password: 'password123' }
+  };
+
+  // Handle Input Changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials({ ...credentials, [name]: value });
+  };
+
+  // Handle Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validation to check if fields are empty
+    if (!credentials.username || !credentials.password) {
+      setError('Both fields are required!');
+      return;
+    }
+
     try {
-      const response = await axios.post('http://localhost:5000/api/login', { email, password });
+      // Perform login via backend (remove for dummy login)
+      const response = await axios.post('http://localhost:5000/api/login', {
+        email: credentials.username,
+        password: credentials.password,
+      });
 
       if (response.data.success) {
         const { role } = response.data;
 
-        // Redirect based on user role
+        // Redirect based on user role from backend
         if (role === 'parent') history.push('/parent-dashboard');
         if (role === 'staff') history.push('/staff-dashboard');
         if (role === 'admin') history.push('/admin-dashboard');
       }
     } catch (err) {
-      setError('Invalid login credentials');
+      // Dummy login check for testing without backend
+      if (
+        credentials.username === dummyCredentials[userRole].username &&
+        credentials.password === dummyCredentials[userRole].password
+      ) {
+        setError('');
+        alert(`${userRole} Login Successful!`);
+      } else {
+        setError('Invalid username or password');
+      }
     }
   };
 
   return (
-    <Container maxWidth="xs"> {/* Centered and constrained width */}
-      <Box sx={{ mt: 8 }}> {/* Margin at the top */}
-        <Typography variant="h4" align="center">Login</Typography>
-        {error && <Typography color="error">{error}</Typography>} {/* Error message */}
-        <form onSubmit={handleSubmit}>
-          <TextField
-            label="Email"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <TextField
-            label="Password"
-            variant="outlined"
-            type="password"
-            fullWidth
-            margin="normal"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
-            Login
-          </Button>
-        </form>
-      </Box>
-    </Container>
+    <div className="login-page">
+      <Container maxWidth="sm">
+        <Box className="login-container" boxShadow={3} p={3}>
+          <Typography variant="h4" align="center" gutterBottom>
+            {userRole} Login
+          </Typography>
+          <form onSubmit={handleSubmit}>
+            <Grid container spacing={3}>
+              {/* Username Field */}
+              <Grid item xs={12}>
+                <TextField
+                  label="Username"
+                  variant="outlined"
+                  fullWidth
+                  name="username"
+                  value={credentials.username}
+                  onChange={handleChange}
+                />
+              </Grid>
+
+              {/* Password Field */}
+              <Grid item xs={12}>
+                <TextField
+                  label="Password"
+                  type="password"
+                  variant="outlined"
+                  fullWidth
+                  name="password"
+                  value={credentials.password}
+                  onChange={handleChange}
+                />
+              </Grid>
+
+              {/* Error Message */}
+              {error && (
+                <Grid item xs={12}>
+                  <Typography color="error">{error}</Typography>
+                </Grid>
+              )}
+
+              {/* Submit Button */}
+              <Grid item xs={12}>
+                <Button variant="contained" color="primary" type="submit" fullWidth>
+                  Login
+                </Button>
+              </Grid>
+            </Grid>
+          </form>
+        </Box>
+      </Container>
+    </div>
   );
 };
 

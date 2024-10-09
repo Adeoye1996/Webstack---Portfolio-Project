@@ -1,0 +1,14 @@
+.admission-page {
+  padding: 20px;
+}
+
+.admission-process-section,
+.admission-requirements-section,
+.fees-section,
+.application-form-section {
+  margin: 40px 0;
+}
+
+.application-form {
+  margin-top: 20px;
+}

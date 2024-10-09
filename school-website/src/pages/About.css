@@ -1,0 +1,16 @@
+.about-page {
+  padding: 20px;
+}
+
+.history-section,
+.mission-vision-section,
+.leadership-section {
+  margin: 40px 0;
+}
+
+.leader {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
