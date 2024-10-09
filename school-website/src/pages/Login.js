@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Replaced useHistory with useNavigate
 import axios from 'axios';
 import { Container, TextField, Button, Typography, Box, Grid } from '@mui/material';
 import './Login.css'; // Assuming some CSS styling
@@ -7,7 +7,7 @@ import './Login.css'; // Assuming some CSS styling
 const Login = ({ userRole }) => {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate(); // Replaced useHistory with useNavigate
 
   // Dummy credentials for testing login
   const dummyCredentials = {
@@ -43,9 +43,9 @@ const Login = ({ userRole }) => {
         const { role } = response.data;
 
         // Redirect based on user role from backend
-        if (role === 'parent') history.push('/parent-dashboard');
-        if (role === 'staff') history.push('/staff-dashboard');
-        if (role === 'admin') history.push('/admin-dashboard');
+        if (role === 'parent') navigate('/parent-dashboard');
+        if (role === 'staff') navigate('/staff-dashboard');
+        if (role === 'admin') navigate('/admin-dashboard');
       }
     } catch (err) {
       // Dummy login check for testing without backend
@@ -55,6 +55,7 @@ const Login = ({ userRole }) => {
       ) {
         setError('');
         alert(`${userRole} Login Successful!`);
+        navigate(`/${userRole.toLowerCase()}-dashboard`); // Redirect to the respective dashboard
       } else {
         setError('Invalid username or password');
       }
