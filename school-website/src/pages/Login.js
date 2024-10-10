@@ -33,16 +33,16 @@ const Login = ({ userRole }) => {
     }
 
     try {
-      // Perform login via backend (remove for dummy login)
-      const response = await axios.post('http://localhost:5000/api/login', {
+      // Perform login via backend
+      const response = await axios.post('http://localhost:5000/api/auth/login', {
         email: credentials.username,
         password: credentials.password,
+        role: userRole // Pass the user role here
       });
 
-      if (response.data.success) {
-        const { role } = response.data;
-
-        // Redirect based on user role from backend
+      // Check if the response contains a token
+      if (response.data.token) {
+        const { role } = response.data.user; // Assuming the response contains user info
         if (role === 'parent') navigate('/parent-dashboard');
         if (role === 'staff') navigate('/staff-dashboard');
         if (role === 'admin') navigate('/admin-dashboard');

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Box, Tab, Tabs, Alert } from '@mui/material';
-import axios from '../utils/axios';
+import axios from '../utils/axios'; // Ensure this points to your axios instance
 import { useNavigate } from 'react-router-dom';
 
 function LoginPortal() {
@@ -17,9 +17,15 @@ function LoginPortal() {
 
   // Handle login form submission
   const handleLogin = async () => {
+    // Basic validation
+    if (!email || !password) {
+      setError('Email and Password are required!');
+      return;
+    }
+
     try {
       const role = tabIndex === 0 ? 'parent' : tabIndex === 1 ? 'staff' : 'admin';
-      const res = await axios.post('/auth/login', { email, password, role });  // Send role as well
+      const res = await axios.post('/auth/login', { email, password, role });  // Ensure this is the correct endpoint
 
       // Store the token in localStorage
       localStorage.setItem('token', res.data.token);
@@ -35,7 +41,9 @@ function LoginPortal() {
         navigate('/admin-dashboard');
       }
     } catch (err) {
-      setError('Invalid credentials, please try again.');
+      // Check if there's a response error
+      const errorMessage = err.response?.data?.msg || 'Invalid credentials, please try again.';
+      setError(errorMessage);
     }
   };
 

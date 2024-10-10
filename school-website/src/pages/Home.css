@@ -1,5 +1,10 @@
+body {
+  background-color: #f0f8ff; /* Change to a more appealing color */
+  color: #333; /* Choose a contrasting color */
+}
+
 .home-page {
-	 /* Background image can be added here */
+  /* Background image can be added here */
   background-image: url('../assets/FB_IMG_1659983789674.jpg'); /* Correct path */
   background-size: cover;
   background-position: center;
@@ -24,6 +29,19 @@
   padding: 10px;
   border-radius: 5px;
 }
+
+/* Merged testimonial-card styles */
+.testimonial-card {
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+}
+
 .cta-section {
   margin: 40px 0;
   text-align: center;
