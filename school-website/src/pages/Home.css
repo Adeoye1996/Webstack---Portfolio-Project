@@ -4,11 +4,11 @@ body {
 }
 
 .home-page {
-  /* Background image can be added here */
-  background-image: url('../assets/FB_IMG_1659983789674.jpg'); /* Correct path */
+  background-image: url('../assets/FB_IMG_1659983789674.jpg'); /* Ensure correct path */
   background-size: cover;
   background-position: center;
   padding: 20px;
+  min-height: 100vh; /* Ensures the page takes full height */
 }
 
 .introduction {
@@ -28,6 +28,7 @@ body {
   background-color: #f9f9f9;
   padding: 10px;
   border-radius: 5px;
+  margin-top: 10px; /* Space between testimonials */
 }
 
 /* Merged testimonial-card styles */

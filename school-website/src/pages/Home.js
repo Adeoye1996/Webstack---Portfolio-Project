@@ -1,12 +1,11 @@
 import React from 'react';
 import { Container, Typography, Button, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
-import './Home.css';  // Link to custom styles
+import './Home.css'; // Link to custom styles
 
 const Home = () => {
   return (
     <div className="home-page">
-      {/* Background image can be added here through CSS */}
       <Container maxWidth="lg">
         
         {/* Introduction Section */}
@@ -51,7 +50,6 @@ const Home = () => {
                 Hear from our students and parents!
               </Typography>
               <div className="testimonials">
-                {/* Comment: Add images here in the div below */}
                 <div className="testimonial">
                   <Typography variant="body1">
                     "The school provided an excellent learning environment!"
