@@ -1,11 +1,18 @@
+.courses-container {
+  background-color: #f0f8ff; /* Light blue background for the container */
+  padding: 20px; /* Add padding around the container */
+  min-height: 100vh; /* Ensure the container takes up full height */
+}
+
 .course-card {
-  transition: box-shadow 0.3s; /* Transition for smooth effect */
-  border-radius: 8px; /* Optional: to give rounded corners */
-  background-color: #ffffff; /* Light background for the card */
-  padding: 16px; /* Inner padding for the card */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Default shadow for the card */
+  background-color: white; /* White background for each course card */
+  margin: 10px; /* Space between cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s; /* Animation on hover */
 }
 
 .course-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add hover effect */
+  transform: scale(1.05); /* Slightly scale up on hover */
 }
+
+/* Additional styles if needed */

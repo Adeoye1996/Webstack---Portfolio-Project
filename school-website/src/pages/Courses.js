@@ -6,7 +6,7 @@ import './Courses.css'; // Import the CSS file for styling
 function Courses() {
   const [courses, setCourses] = useState([]);
 
-  // Static course data
+  // Static course data in case the API fails
   const staticCourses = [
     { id: 1, name: 'Math 101', description: 'Basic mathematics principles' },
     { id: 2, name: 'Physics 201', description: 'Introduction to Physics' },
@@ -16,7 +16,7 @@ function Courses() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get('/api/school/courses');
+        const response = await axios.get('http://localhost:5000/api/school/courses'); // Update the API URL with full path
         setCourses(response.data); // Store the course data in the state
       } catch (error) {
         console.error('Error fetching courses:', error);
@@ -27,19 +27,16 @@ function Courses() {
   }, []);
 
   return (
-    // Main container for the Courses page
     <Container>
-      {/* Page heading */}
       <Typography variant="h3" component="h1" gutterBottom>
         Our Courses
       </Typography>
       
-      {/* Grid layout for the courses */}
       <Grid container spacing={3}>
         {courses.length > 0 ? (
           courses.map((course) => (
             <Grid item key={course.id} xs={12} md={6}>
-              <Card className="course-card"> {/* Added class for styling */}
+              <Card className="course-card">
                 <CardContent>
                   <Typography variant="h5" color="primary">{course.name}</Typography>
                   <Typography variant="body2" color="textSecondary">{course.description}</Typography>
