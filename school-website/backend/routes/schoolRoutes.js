@@ -17,4 +17,6 @@ router.get('/admissions', getAllAdmissions);
 // Route to create a new admission
 router.post('/admissions', createAdmission);
 
+[[I
+
 module.exports = router;

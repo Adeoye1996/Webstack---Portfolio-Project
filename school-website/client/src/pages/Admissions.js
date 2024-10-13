@@ -1,139 +1,43 @@
 import React from 'react';
-import { Container, Typography, Grid, TextField, Button, Box } from '@mui/material';
-import './Admission.css';
+import { Container, Typography, Button } from '@mui/material';
+import './Admissions.css';
 
-const Admission = () => {
+const Admissions = () => {
   return (
-    <div className="admission-page">
-      <Container maxWidth="lg">
-        
-        {/* Admission Process Section */}
-        <section className="admission-process-section">
-          <Typography variant="h4" gutterBottom>
-            Admission Process
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Our admission process is designed to be straightforward and transparent. Follow the steps below to apply:
-          </Typography>
-          <Typography variant="body1" paragraph>
-            1. Complete the online application form (below).
-          </Typography>
-          <Typography variant="body1" paragraph>
-            2. Submit the required documents.
-          </Typography>
-          <Typography variant="body1" paragraph>
-            3. Attend an interview with the admission committee.
-          </Typography>
-          <Typography variant="body1" paragraph>
-            4. Receive your admission decision within 2 weeks of the interview.
-          </Typography>
-        </section>
+    <Container className="admissions-container">
+      <Typography variant="h3" className="admissions-title">Admissions Process</Typography>
+      <Typography variant="body1" className="admissions-text">
+        Our admissions process is designed to be simple and straightforward. Follow these steps to apply...
+      </Typography>
 
-        {/* Admission Requirements Section */}
-        <section className="admission-requirements-section">
-          <Typography variant="h4" gutterBottom>
-            Admission Requirements
-          </Typography>
-          <Typography variant="body1" paragraph>
-            To apply for admission, please ensure you meet the following requirements:
-          </Typography>
-          <Typography variant="body1" paragraph>
-            - Completed application form
-          </Typography>
-          <Typography variant="body1" paragraph>
-            - Birth certificate or valid identification
-          </Typography>
-          <Typography variant="body1" paragraph>
-            - Previous academic records (if applicable)
-          </Typography>
-          <Typography variant="body1" paragraph>
-            - Recommendation letter (optional)
-          </Typography>
-        </section>
+      {/* Application Process */}
+      <div className="process-section">
+        <Typography variant="h4" className="admissions-title">Steps to Apply</Typography>
+        <ul>
+          <li>Submit the online application form</li>
+          <li>Attend an interview with our admissions team</li>
+          <li>Submit all required documents (birth certificate, previous school records, etc.)</li>
+          <li>Receive an offer letter</li>
+          <li>Pay the tuition fees</li>
+        </ul>
+      </div>
 
-        {/* Tuition and Fees Section */}
-        <section className="fees-section">
-          <Typography variant="h4" gutterBottom>
-            Tuition & Fees
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Our tuition and fees are designed to be affordable and flexible. Scholarships are also available for qualifying students.
-          </Typography>
-          <Typography variant="body1" paragraph>
-            - Annual Tuition Fee: $10,000
-          </Typography>
-          <Typography variant="body1" paragraph>
-            - Registration Fee: $500 (one-time)
-          </Typography>
-          <Typography variant="body1" paragraph>
-            - Payment Plans Available
-          </Typography>
-        </section>
+      {/* Fees and Requirements */}
+      <div className="fees-section">
+        <Typography variant="h4" className="admissions-title">Fees and Requirements</Typography>
+        <Typography variant="body1" className="admissions-text">
+          The tuition fees for the academic year are as follows...
+        </Typography>
+        <ul>
+          <li>Early Years: $5,000 per year</li>
+          <li>Primary Years: $6,000 per year</li>
+          <li>Secondary Years: $7,500 per year</li>
+        </ul>
+      </div>
 
-        {/* Application Form Section */}
-        <section className="application-form-section">
-          <Typography variant="h4" gutterBottom>
-            Apply Now
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Complete the form below to start your admission process:
-          </Typography>
-
-          <form className="application-form">
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="First Name"
-                  variant="outlined"
-                  fullWidth
-                  required
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Last Name"
-                  variant="outlined"
-                  fullWidth
-                  required
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Email"
-                  type="email"
-                  variant="outlined"
-                  fullWidth
-                  required
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Phone Number"
-                  variant="outlined"
-                  fullWidth
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  label="Why do you want to join our school?"
-                  variant="outlined"
-                  multiline
-                  rows={4}
-                  fullWidth
-                  required
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <Button variant="contained" color="primary" type="submit">
-                  Submit Application
-                </Button>
-              </Grid>
-            </Grid>
-          </form>
-        </section>
-      </Container>
-    </div>
+      <Button variant="contained" color="primary" href="/apply">Apply Now</Button>
+    </Container>
   );
 };
 
-export default Admission;
+export default Admissions;

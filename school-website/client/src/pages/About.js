@@ -4,83 +4,60 @@ import './About.css';
 
 const About = () => {
   return (
-    <div className="about-page">
-      <Container maxWidth="lg">
-        
-        {/* School History Section */}
-        <section className="history-section">
-          <Typography variant="h4" gutterBottom>
-            Our History
-          </Typography>
-          <Typography variant="body1" paragraph>
-            [School Name] was founded in [Year], with a vision to create a nurturing environment for young minds to grow, learn, and excel. Since our inception, we have been dedicated to providing a high-quality education that balances academics, personal development, and community engagement.
-          </Typography>
-        </section>
+    <Container className="about-container">
+      {/* School History Section */}
+      <Typography variant="h3" className="about-title">Our History</Typography>
+      <Typography variant="body1" className="about-text">
+        Established in 2024, our school has a long-standing tradition of academic excellence...
+      </Typography>
 
-        {/* Mission & Vision Section */}
-        <section className="mission-vision-section">
-          <Typography variant="h4" gutterBottom>
-            Our Mission & Vision
-          </Typography>
-          <Typography variant="h6" gutterBottom>
-            Mission
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Our mission is to provide an inclusive and stimulating environment that fosters intellectual growth, creativity, and character building in every student.
-          </Typography>
-          <Typography variant="h6" gutterBottom>
-            Vision
-          </Typography>
-          <Typography variant="body1" paragraph>
-            We envision a future where every child is empowered with the knowledge and skills to make a positive impact in their communities and beyond.
-          </Typography>
-        </section>
+      {/* Mission and Vision */}
+      <Typography variant="h4" className="about-title">Mission and Vision</Typography>
+      <Typography variant="body1" className="about-text">
+        Our mission is to provide quality education that nurtures the next generation and provide more advance environment for technology education...
+      </Typography>
 
-        {/* Leadership Team Section */}
-        <section className="leadership-section">
-          <Typography variant="h4" gutterBottom>
-            Leadership Team
-          </Typography>
-          <Grid container spacing={4}>
-            {/* Leadership member 1 */}
-            <Grid item xs={12} md={4}>
-              <div className="leader">
-                <Typography variant="h6">
-                  Principal - John Doe
-                </Typography>
-                <Typography variant="body2">
-                  John Doe has been the principal of [School Name] for over 10 years, guiding the school through numerous achievements and setting a high standard for academic excellence.
-                </Typography>
-              </div>
-            </Grid>
-
-            {/* Leadership member 2 */}
-            <Grid item xs={12} md={4}>
-              <div className="leader">
-                <Typography variant="h6">
-                  Vice Principal - Jane Smith
-                </Typography>
-                <Typography variant="body2">
-                  Jane Smith oversees student development and leads various school initiatives aimed at improving student well-being and engagement.
-                </Typography>
-              </div>
-            </Grid>
-
-            {/* Leadership member 3 */}
-            <Grid item xs={12} md={4}>
-              <div className="leader">
-                <Typography variant="h6">
-                  Director of Curriculum - Dr. Emily Johnson
-                </Typography>
-                <Typography variant="body2">
-                  Dr. Emily Johnson has revolutionized the curriculum at [School Name], incorporating modern teaching methodologies and technologies to enhance the learning experience.
-                </Typography>
-              </div>
-            </Grid>
-          </Grid>
-        </section>
-      </Container>
-    </div>
+      {/* Leadership Team Section */}
+      <Typography variant="h4" className="about-title">Leadership Team</Typography>
+      <Grid container spacing={4} className="leadership-section">
+        <Grid item xs={12} sm={4}>
+          <div className="leadership-card">
+            <img src="assets/team1.jpg" alt="Leader 1" className="leader-image" />
+            <Typography variant="h5">Abdulrazak Abdulazeez</Typography>
+            <Typography variant="body2">School Principal</Typography>
+            <div className="social-icons">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <div className="leadership-card">
+            <img src="assets/team2.jpg" alt="Leader 2" className="leader-image" />
+            <Typography variant="h5">Jane Smith</Typography>
+            <Typography variant="body2">Vice Principal</Typography>
+            <div className="social-icons">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <div className="leadership-card">
+            <img src="assets/team3.jpg" alt="Leader 3" className="leader-image" />
+            <Typography variant="h5">Muniroh Eniola</Typography>
+            <Typography variant="body2">Director of Education</Typography>
+            <div className="social-icons">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

@@ -1,24 +1,49 @@
-.about-page {
-  padding: 20px;
+/* About Page Styling */
+.about-container {
+  margin-top: 40px;
 }
 
-.history-section,
-.mission-vision-section,
+.about-title {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.about-text {
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Leadership Team Section */
 .leadership-section {
-  margin: 40px 0;
-}
-
-.leader {
-  background-color: #f9f9f9;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
 }
 
 .leadership-card {
-  transition: background-color 0.3s;
-}
-.leadership-card:hover {
-  background-color: #d2b48c; /* Brownish color */
+  text-align: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
 }
 
+.leadership-card:hover {
+  background-color: #d4a373;
+}
+
+.leader-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #d4a373;
+}
