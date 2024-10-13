@@ -28,6 +28,9 @@ app.use('/api/auth', authRoutes); // Authentication routes
 // Use the school routes
 app.use('/api/school', schoolRoutes);
 
+// Serve static files (for images, CSS, etc.)
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,

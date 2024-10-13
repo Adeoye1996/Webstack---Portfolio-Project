@@ -22,7 +22,7 @@ const About = () => {
       <Grid container spacing={4} className="leadership-section">
         <Grid item xs={12} sm={4}>
           <div className="leadership-card">
-            <img src="assets/team1.jpg" alt="Leader 1" className="leader-image" />
+            <img src={`${process.env.PUBLIC_URL}/assets/team1.jpg`} alt="Leader 1" className="leader-image" />
             <Typography variant="h5">Abdulrazak Abdulazeez</Typography>
             <Typography variant="body2">School Principal</Typography>
             <div className="social-icons">
@@ -34,7 +34,7 @@ const About = () => {
         </Grid>
         <Grid item xs={12} sm={4}>
           <div className="leadership-card">
-            <img src="assets/team2.jpg" alt="Leader 2" className="leader-image" />
+            <img src={`${process.env.PUBLIC_URL}/assets/team2.jpg`} alt="Leader 2" className="leader-image" />
             <Typography variant="h5">Jane Smith</Typography>
             <Typography variant="body2">Vice Principal</Typography>
             <div className="social-icons">
@@ -46,7 +46,7 @@ const About = () => {
         </Grid>
         <Grid item xs={12} sm={4}>
           <div className="leadership-card">
-            <img src="assets/team3.jpg" alt="Leader 3" className="leader-image" />
+            <img src={`${process.env.PUBLIC_URL}/assets/team3.jpg`} alt="Leader 3" className="leader-image" />
             <Typography variant="h5">Muniroh Eniola</Typography>
             <Typography variant="body2">Director of Education</Typography>
             <div className="social-icons">

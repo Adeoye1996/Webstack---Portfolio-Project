@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 
 // Background images for the slideshow
-const images = ['assets/go.jpg', 'assets/let.jpg', 'assets/hope.jpg'];
+const images = [
+  `${process.env.PUBLIC_URL}/assets/go.jpg`,
+  `${process.env.PUBLIC_URL}/assets/let.jpg`,
+  `${process.env.PUBLIC_URL}/assets/hope.jpg`
+];
 
 const Home = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -33,7 +37,7 @@ const Home = () => {
             Welcome to [Yetma Ict School]
           </Typography>
           <Typography variant="body1">
-            At [Yetma Ict School], we are dedicated to nurturing young minds and empowering the leaders of tomorrow through holistic education and modern learning,we have a long track record that keep us up to new adabtation to the renew world of technology and balance with school life.
+            At Yetma Ict School, we are dedicated to nurturing young minds and empowering the leaders of tomorrow...
           </Typography>
         </section>
 
@@ -94,7 +98,7 @@ const Home = () => {
         {/* Welcome Speech Section */}
         <div className="welcome-section">
           <Typography variant="h3" className="welcome-title">A Message from the School Head</Typography>
-          <img src="assets/schoolhead.jpg" alt="School Head" className="school-head-image" />
+          <img src={`${process.env.PUBLIC_URL}/assets/schoolhead.jpg`} alt="School Head" className="school-head-image" />
           <Typography variant="body1" className="welcome-text">
             We are proud to offer a nurturing and academically challenging environment...
           </Typography>
