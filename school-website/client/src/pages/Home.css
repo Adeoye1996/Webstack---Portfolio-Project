@@ -3,14 +3,13 @@ body {
   color: #333; /* Dark text color */
   margin: 0; /* Reset margin */
 }
-
 .home-page {
-/*  background-image: url('../assets/IMG-20221212-WA0005.jpg'); /* Ensure the path is correct */
+  /* Ensure the path is correct */
   background-size: cover;
   background-position: center;
   padding: 20px;
   background-color: #f0f8ff; /* This will set a light blue background as a fallback */
-
+}
 
 /* Background image section */
 .background-section {
