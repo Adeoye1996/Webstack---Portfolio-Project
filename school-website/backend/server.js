@@ -39,11 +39,11 @@ mongoose.connect(process.env.MONGO_URI, {
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder to the build folder in the React client
-  app.use(express.static(path.join(__dirname, 'client', 'build')));
+  app.use(express.static(path.join(__dirname, '../client/build')));
 
   // Handle any other route and serve the index.html file from the build folder
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
   });
 }
 
