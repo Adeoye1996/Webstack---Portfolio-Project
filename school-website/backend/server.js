@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors'); // To allow cross-origin requests
 const bodyParser = require('body-parser'); // For parsing request bodies
+const path = require('path'); // For serving static files
 
 // Import routes
 const schoolRoutes = require('./routes/schoolRoutes');
@@ -28,9 +29,23 @@ app.use('/api/auth', authRoutes); // Authentication routes
 app.use('/api/school', schoolRoutes);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
   .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error(err));
+  .catch(err => console.error('MongoDB connection error:', err));
+
+// Serve static files in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder to the build folder in the React client
+  app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+  // Handle any other route and serve the index.html file from the build folder
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 // Simple route to test the server
 app.get('/', (req, res) => {
