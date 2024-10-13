@@ -1,0 +1,18 @@
+{
+  "name": "school-website",
+  "version": "1.0.0",
+  "description": "School Website Full Stack Project",
+  "scripts": {
+    "start": "npm-run-all --parallel start:backend start:client",
+    "install": "npm-run-all install:backend install:client",
+    "build": "npm-run-all build:client",
+    "start:backend": "cd backend && npm start",
+    "start:client": "cd client && npm start",
+    "install:backend": "cd backend && npm install",
+    "install:client": "cd client && npm install",
+    "build:client": "cd client && npm run build"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
