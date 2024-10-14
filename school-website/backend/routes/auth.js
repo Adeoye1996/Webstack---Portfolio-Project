@@ -18,26 +18,26 @@ const users = [
 router.post(
   '/login',
   [
-    check('username', 'Please include a valid username').exists(), // Changed to 'username'
-    check('password', 'Password is required').exists(),
-    check('role', 'Role is required').exists()  // Validate that role is sent
+    check('username', 'Please include a valid username').exists(), // Validate username presence
+    check('password', 'Password is required').exists(),            // Validate password presence
+    check('role', 'Role is required').exists()                     // Validate role presence
   ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array() }); // Return validation errors
     }
 
-    const { username, password, role } = req.body;  // Extract username, password, and role
+    const { username, password, role } = req.body; // Extract username, password, and role
 
     try {
       // 1. Check if the user exists in the database
-      let user = await User.findOne({ username, role });  // Changed from 'email' to 'username'
+      let user = await User.findOne({ username, role }); // Search for the user in the database
 
       // 2. If no user found in the database, check dummy data
       if (!user) {
         const testUser = users.find(
-          (user) => user.username === username && user.password === password && user.role === role
+          (u) => u.username === username && u.password === password && u.role === role
         );
 
         if (testUser) {
@@ -71,12 +71,12 @@ router.post(
         { expiresIn: '1h' },
         (err, token) => {
           if (err) throw err;
-          res.json({ token });
+          res.json({ token }); // Return the generated token
         }
       );
     } catch (err) {
       console.error(err.message);
-      res.status(500).send('Server error');
+      res.status(500).send('Server error'); // Handle server errors
     }
   }
 );

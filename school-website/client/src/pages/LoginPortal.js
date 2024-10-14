@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function LoginPortal() {
   const [tabIndex, setTabIndex] = useState(0);
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState(''); // Changed from email to username
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -18,14 +18,14 @@ function LoginPortal() {
   // Handle login form submission
   const handleLogin = async () => {
     // Basic validation
-    if (!email || !password) {
-      setError('Email and Password are required!');
+    if (!username || !password) { // Updated validation to check for username
+      setError('Username and Password are required!');
       return;
     }
 
     try {
       const role = tabIndex === 0 ? 'parent' : tabIndex === 1 ? 'staff' : 'admin';
-      const res = await axios.post('/auth/login', { email, password, role });  // Ensure this is the correct endpoint
+      const res = await axios.post('/auth/login', { username, password, role });  // Ensure this is the correct endpoint
 
       // Store the token in localStorage
       localStorage.setItem('token', res.data.token);
@@ -64,11 +64,10 @@ function LoginPortal() {
       {error && <Alert severity="error">{error}</Alert>} {/* Display any login errors */}
 
       <TextField
-        label="Email"
-        type="email"
+        label="Username"  // Updated from Email to Username
         fullWidth
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
         margin="normal"
       />
       <TextField
