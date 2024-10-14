@@ -20,6 +20,8 @@ import StaffPortal from './pages/StaffPortal';   // Correct path for Staff login
 import AdminPortal from './pages/AdminPortal';   // Correct path for Admin login portal
 import PrivateRoute from './components/PrivateRoute'; // For protected routes like dashboards
 import NotFound from './pages/NotFound'; // 404 page for invalid routes
+import Events from './pages/Events'; // Importing Events page
+import Gallery from './pages/Gallery'; // Importing Gallery page
 
 function App() {
   return (
@@ -40,6 +42,10 @@ function App() {
           <Route path="/news-events" element={<NewsEvents />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/login" element={<LoginPortal />} />
+          
+          {/* New Routes for Events and Gallery */}
+          <Route path="/events" element={<Events />} /> {/* Adding Events route */}
+          <Route path="/gallery" element={<Gallery />} /> {/* Adding Gallery route */}
 
           {/* Portals - Role-Based Access */}
           <Route path="/parent-portal" element={<ParentPortal />} />
