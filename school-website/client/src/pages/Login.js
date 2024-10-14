@@ -35,7 +35,7 @@ const Login = ({ userRole }) => {
     try {
       // Perform login via backend
       const response = await axios.post('http://localhost:5000/api/auth/login', {
-        email: credentials.username,
+        username: credentials.username,
         password: credentials.password,
         role: userRole // Pass the user role here
       });

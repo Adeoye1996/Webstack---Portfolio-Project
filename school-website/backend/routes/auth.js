@@ -6,11 +6,11 @@ const User = require('../models/User');
 
 const router = express.Router();
 
-// Dummy user data for testing
+// Dummy user data for testing (now using 'username' instead of 'email')
 const users = [
-  { email: 'parent@example.com', password: 'password123', role: 'parent' },
-  { email: 'staff@example.com', password: 'password123', role: 'staff' },
-  { email: 'admin@example.com', password: 'password123', role: 'admin' }
+  { username: 'parent123', password: 'password123', role: 'parent' },
+  { username: 'staff123', password: 'password123', role: 'staff' },
+  { username: 'admin123', password: 'password123', role: 'admin' }
 ];
 
 // @route POST /api/auth/login
@@ -18,7 +18,7 @@ const users = [
 router.post(
   '/login',
   [
-    check('email', 'Please include a valid email').isEmail(),
+    check('username', 'Please include a valid username').exists(), // Changed to 'username'
     check('password', 'Password is required').exists(),
     check('role', 'Role is required').exists()  // Validate that role is sent
   ],
@@ -28,21 +28,21 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { email, password, role } = req.body;  // Extract email, password, and role
+    const { username, password, role } = req.body;  // Extract username, password, and role
 
     try {
       // 1. Check if the user exists in the database
-      let user = await User.findOne({ email, role });
+      let user = await User.findOne({ username, role });  // Changed from 'email' to 'username'
 
       // 2. If no user found in the database, check dummy data
       if (!user) {
         const testUser = users.find(
-          (user) => user.email === email && user.password === password && user.role === role
+          (user) => user.username === username && user.password === password && user.role === role
         );
 
         if (testUser) {
           // If found in dummy data, return token
-          const payload = { user: { email: testUser.email, role: testUser.role }};
+          const payload = { user: { username: testUser.username, role: testUser.role }};
           const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
           return res.json({ token });
         } else {

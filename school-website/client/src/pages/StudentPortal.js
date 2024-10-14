@@ -3,7 +3,7 @@ import { Container, Typography, Grid, Card, CardContent, Button, Box } from '@mu
 
 const StudentPortal = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [username, setUsername] = useState('');
+    const [username, setUsername] = useState(''); // Username instead of email
     const [password, setPassword] = useState('');
 
     const handleLogin = async (e) => {
@@ -12,7 +12,7 @@ const StudentPortal = () => {
             const response = await fetch('/api/auth/student-login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ username, password }), // Send username instead of email
             });
             const data = await response.json();
             if (response.ok) {
