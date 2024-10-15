@@ -8,7 +8,8 @@ const path = require('path'); // For serving static files
 
 // Import routes
 const schoolRoutes = require('./routes/schoolRoutes');
-const authRoutes = require('./routes/auth'); // Your authentication route
+const authRoutes = require('./routes/auth'); // Existing auth route
+const authNewUserRoutes = require('./routes/authNewUser'); // New user auth route
 
 // Initialize dotenv to load environment variables
 dotenv.config();
@@ -23,7 +24,10 @@ app.use(cors());
 app.use(bodyParser.json()); // Using bodyParser to handle request body as JSON
 
 // Use the authentication route for login
-app.use('/api/auth', authRoutes); // Authentication routes
+app.use('/api/auth', authRoutes); // Existing authentication routes
+
+// Use the new user authentication routes for registration and login
+app.use('/api/new-auth', authNewUserRoutes); // New user authentication routes
 
 // Use the school routes
 app.use('/api/school', schoolRoutes);
