@@ -1,9 +1,14 @@
+// insertUser.js
+
+const mongoose = require('mongoose');
+const User = require('./models/NewUser'); // Adjust the path if necessary
+
 async function insertUsers() {
     const users = [
-        { username: 'Adeoye1996', password: 'Abdulazeez1', role: 'admin', email: 'Abdulazeezbabatunde10@gmail.com' },
-        { username: 'parent123', password: 'password123', role: 'parent', email: 'Abdulazeezbabatunde20@yahoo.com' },
-        { username: 'staff123', password: 'password123', role: 'staff', email: 'Abdulazeezbabatunde10@gmail.com' },
-        { username: 'student123', password: 'password123', role: 'student', email: 'student@example.com' }
+        { username: 'Adeoye1996', password: 'Abdulazeez1', role: 'admin' },
+        { username: 'parent123', password: 'password123', role: 'parent' },
+        { username: 'staff123', password: 'password123', role: 'staff' },
+        { username: 'student123', password: 'password123', role: 'student' }
     ];
 
     for (const userData of users) {
@@ -26,3 +31,9 @@ async function insertUsers() {
 
     mongoose.connection.close(); // Close the connection after insertion
 }
+
+// Call the function to insert users (make sure to connect to MongoDB before calling this function)
+(async () => {
+    await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+    await insertUsers();
+})();
