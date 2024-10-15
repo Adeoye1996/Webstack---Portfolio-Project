@@ -1,5 +1,3 @@
-// authNewUser.js
-
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
@@ -47,7 +45,7 @@ router.post(
 
       res.status(201).json({ msg: 'User registered successfully' });
     } catch (err) {
-      console.error(err.message);
+      console.error('Registration error:', err.message);
       res.status(500).send('Server error');
     }
   }
