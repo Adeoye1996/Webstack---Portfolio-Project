@@ -114,7 +114,7 @@ Version Control: Git
 
 Testing: Jest (Unit Testing), Cypress (End-to-End Testing)
 
-Deployment: Heroku (Backend), GitHub Pages (Frontend)
+Deployment: Render (Backend), Render (Frontend)
 
 Prerequisites
 
@@ -131,7 +131,7 @@ Installation
 1. Clone the Repository
 bash
 Copy code
-git clone https://github.com/<your-username>/school-website.git
+git clone https://github.com/Adeoye1996/school-website.git
 cd school-website
 
 2. Install Dependencies
@@ -246,40 +246,59 @@ Copy code
 npm run cy:open
 Deployment
 
-1. Deploy Backend to Heroku
-Install the Heroku CLI:
+1. Deploy Backend to Render
+   
+Step 1: Create a New Render Service
+Create a new Render service for your school website backend:
+Sign up/in to Render: 
+Click "New+" and select "Web Service"
+
+Step 2: Link Your Repository
+Link your GitHub repository to Render:
+Select "GitHub" as the repository provider
+Choose your repository and branch
+
+Step 3: Configure Environment Variables
+Set environment variables for your Render service:
+Click "Environment Variables"
+Add variables (e.g., DATABASE_URL, JWT_SECRET)
+
+Step 4: Deploy to Render
+Deploy your backend application to Render:
+Click "Deploy"
+Wait for the deployment to complete
+Alternative Deployment Method
+You can also deploy using Render's Git-based deployment:
+Create a new Render service
+Link your repository and branch
+Render will automatically deploy on push
+Tips and Reminders:
+Ensure your package.json file is updated
+Check Render's documentation for any updates
+Verify your application's environment variables
 
 bash
-Copy code
-npm install -g heroku
-Login to Heroku:
+2. Deploy Frontend to Render
 
-bash
-Copy code
-heroku login
-Create a new Heroku app:
+Step 1: Create a New Render Static Site
+Create a new Render static site for your school website frontend:
+Sign up/in to Render: 
+Click "New+" and select "Static Site"
 
-bash
-Copy code
-heroku create school-website-backend
-Deploy to Heroku:
+Step 2: Link Your Repository
+Link your GitHub repository to Render:
+Select "GitHub" as the repository provider
+Choose your repository and branch
 
-bash
-Copy code
-git push heroku main
-Add MongoDB via Heroku Add-ons and configure environment variables.
+Step 3: Configure Build Settings
+Set build settings for your Render static site:
+Set "Build Command" to npm run build (or your build command)
+Set "Publish Directory" to build (or your output directory)
 
-2. Deploy Frontend to GitHub Pages
-Install GitHub Pages package:
-
-bash
-Copy code
-npm install gh-pages
-Deploy to GitHub Pages:
-
-bash
-Copy code
-npm run deploy
+Step 4: Deploy to Render
+Deploy your frontend application to Render:
+Click "Deploy"
+Wait for the deployment to complete
 Future Improvements
 Implement Real Authentication: Replace the dummy login system with a full authentication system (e.g., using JWT).
 Add User Management: Allow admins to manage parents and staff accounts.
